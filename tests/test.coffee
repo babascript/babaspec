@@ -9,3 +9,6 @@ describe 'test', ->
 
   it 'should be hoge', ->
     return assert.equal 'hoge', script()
+
+  it 'hoge', ->
+    babaspec.equal 'aaaaaa', true

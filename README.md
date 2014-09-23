@@ -1,21 +1,21 @@
-# nodeinit
+=======
+babaspec
+========
 
-![](https://travis-ci.org/geta6/nodeinit.png?branch=master)
+test framework using babascript
 
-node_moduleを開発し始めるためのベース
+Babascript を使えば人のテストができるかもしれないと思ったのでそういうフレームワーク用にリポジトリを確保した。
+どちらかというと、serverspec とかに近い気がする。
+RSpecとかmochaみたいな記法で人をテストする仕組みがあれば良い気がする。
 
-# usage
+``` coffeescript
 
-    $ git clone https://github.com/geta6/nodeinit
-    $ cd nodeinit
-    $ npm i
-    $ npm i -g grunt-cli
-    $ grunt
-
-# tasks
-
-* lint coffee
-* build coffee (`src` to `lib`, recursive)
-* mocha test (`tests/test.coffee`)
-* watching file changes
-* failure notification
+babaspec "takumibaba", (baba) ->
+  describe "プログラムが書けるか", ->
+    it "should return true", ->
+      baba.boolean.equal 'こんばんわ', true
+      baba.string 'おはよう', 'おはよう'
+      baba.number 'ほげふが', 10
+      baba.list [1,2,3,4], 'えらんで', 1
+      
+```
