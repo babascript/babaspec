@@ -1,6 +1,7 @@
 =======
-babaspec
+babaspec: Test framework for human and real-world.
 ========
+
 
 test framework using babascript
 
@@ -33,7 +34,6 @@ Babaspecは、人への行動命令をプログラム上で記述可能にする
         baba.equal {format: 'boolean', key: 'hoge'}, true
         baba.notEqual {format: 'string', key: 'are'}, 'kore'
 
-
         world = new Babaspec "real-world", "name"
 
         world.equal "SFCのすぐ近く", true
@@ -43,5 +43,7 @@ Babaspecは、人への行動命令をプログラム上で記述可能にする
 ## 議論
 
 ## 関連研究
+
+- 人とか実世界をテストするような仕組みある？
 
 ## おわりに
