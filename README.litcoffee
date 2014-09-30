@@ -4,41 +4,20 @@ babaspec
 
 test framework using babascript
 
-babaで、人や実世界をテストするためのフレームワーク
+- 人の挙動を記述するDSL Babascriptを利用したテストフレームワーク
+- 人のスペックや実世界のスペックを記述し、テストできるようになる
 
-Babascript を使えば人のテストができるかもしれないと思ったのでそういうフレームワーク用にリポジトリを確保した。
-どちらかというと、serverspec とかに近い気がする。
-RSpecとかmochaみたいな記法で人をテストする仕組みがあれば良い気がする。
+## Background
 
-baba.equal の第2引数の型をformatとして扱う
+プログラムは、そのプログラムがどのように動作するべきかのスペックを記述し、テストする。
+プログラムがテストできる対象はプログラムのみであるが、人や実世界という要素をもテストしたいはずだ。
+しかし、人のスペックや実世界のスペックを定義し、テストできるような仕組みはない。
+そこで、本研究では、人や実世界のスペックを定義してテストできるようなテストフレームワーク Babaspec を提案する。
 
-    baba.equal = (v1, v2) ->
-      type = typeCheck v1, v2
-      baba.exec v1, {format: type}, (result) ->
-        assert.equal result.value, v1
+## Babaspec
 
-    baba.notEqual = (v1, v2) ->
-      type = typeCheck v1, v2
-      baba.exec v1, {format: type}, (result) ->
-        assert.notEqual result.value, v1
-
-    baba.match = (v1, v2) ->
-      # 正規表現でマッチすれば、みたいな
-      
-    baba.fail = (v1, v2) ->
-      type = typeCheck v1, v2
-      baba.exec v1, {format: type}, (result) ->
-        assert.fail result.value, v1
-
-    typeCheck = (v1, v2) ->
-      if _.isBoolean v2
-        return "boolean"
-      else if _.isString v2
-        return "string"
-      else if _.isNumber v2
-        return "number"
-      else if _.isArray v2
-        return "list"
+Babaspecは、人への行動命令をプログラム上で記述可能にする Babascript と node.js上で利用可能な
+テストフレームワーク mocha を組み合わせる。
 
     describe "baba spec test", ->
 
@@ -61,3 +40,8 @@ baba.equal の第2引数の型をformatとして扱う
 
         assert.equal baba.hogefuga({format: 'list'}, "hoge"), "fuga"
 
+## 議論
+
+## 関連研究
+
+## おわりに
