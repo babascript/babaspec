@@ -24,21 +24,19 @@ Babaspecは、人への行動命令をプログラム上で記述可能にする
 
       it "should return true", ->
 
+        # 人間のスペックを記述する
         baba = new Babaspec "baba"
 
-        baba.boolean.equal 'こんばんわ', true
-        baba.string 'おはよう', 'おはよう'
-        baba.number.notEqual 'ほげふが', 10
-        baba.list [1,2,3,4], 'えらんで', 1
+        baba.equal "プログラムが書けますか", true # format is boolean
+        baba.notEqual "hoge", 'are' # format is string
+        baba.lt "何歳ですか", 20 # format is number
+        # fomat List の場合をどうするか
+        baba.equal baba.選んでください({formatL list, list: [1,2,3]}), [1,2] # format is list?
 
-        baba.equal {format: 'boolean', key: 'hoge'}, true
-        baba.notEqual {format: 'string', key: 'are'}, 'kore'
-
+        # 実世界のスペックを記述する
         world = new Babaspec "real-world", "name"
-
         world.equal "SFCのすぐ近く", true
 
-        assert.equal baba.hogefuga({format: 'list'}, "hoge"), "fuga"
 
 ## 議論
 
